@@ -15,13 +15,16 @@
   <!--script src="{% static "js/map_obj.js" %}"></script-->
   <style>
     body { width:100%; height:100%; position:absolute; }
-    #base-map { position:fixed; top:0; bottom:0; width:100%; height:100%; min-height:100%; z-index:-1; }
+    #base-map { position:fixed; top:0; bottom:0; width:100%; height:100%; min-height:100%; }
+    .mapbox { position: relative;}
+    .mapbox .overlay {position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
+    .mapbox .overlay .btn .panel { pointer-events: initial;}
   </style>
 </head>
 
 
 <body class="application">
-  <div class="container" id="base-map" style="min-height:100%; z-index:-1;" > 
+  <div class="container" id="base-map" style="z-index: 0; min-height:100%;" > 
     
     <!--add map to the "base-map" container-->
     <script>
@@ -43,11 +46,9 @@
 
       <div class="col-sm-2">
         <img src="{% static "img/test_gravator.jpg" %}" class="img-thumbnail" alt="Cinque Terre" width="50px" height="50px" style="float:right; right:10px; position:fixed;"></img--> 
-      </div><!--end of the rightmost column: user gravator and options-->
-    </div><!--end of row-->
-  </div><!--end of container-->  
-
-      <div id="nav-panel" class="panel panel-default" style="z-index:1;" >
+      <!--/div--><!--end of the rightmost column: user gravator and options-->
+    <!--/div--><!--end of row-->
+      <div id="nav-panel" class="panel panel-default" style="z-index:999;" >
       <div class="panel-heading">
         <!--div class="navbar-header">
           <a class="navbar-brand" style="z-index:999" href="./">Dashboard</a>
@@ -57,15 +58,15 @@
           Show
           </button-->
         <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#nav-panel" data-target="#collapseOne" href="#collapseOne" style="z-index:1;">
+        <a data-toggle="collapse" data-parent="#nav-panel" data-target="#collapseOne" href="#collapseOne" style="z-index:999;">
           Touch me to get down below
         </a>
         </h4>
       </div>
 
 
-      <div id="collapseOne" class="panel-collapse collapse in" >
-        <div class="panel-body">
+      <div id="collapseOne" class="panel-collapse collapse in" style="z-index:999;">
+        <div class="panel-body" style="z-index:999;">
           This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
           This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
           This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
@@ -76,6 +77,9 @@
         </div>
       </div>
     </div><!--end of panel-->
+  </div><!--end of container-->  
+
+
 </body>
 
 
