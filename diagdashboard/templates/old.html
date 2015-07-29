@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layouts &raquo; Hero-Thirds</title>
+  {% load staticfiles %}
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width' />
+  <script src="{% static "lib/js/jquery.min.js" %}"></script>
+  <script src="{% static "lib/js/bootstrap.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static "lib/css/bootstrap.min.css" %}"/>
+  <!--link rel="stylesheet" href="{% static "lib/css/keen-dashboards.css" %}"/-->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+  <script src="{% static "lib/js/d3.js" %}"></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+  <link href="{% static "css/diag.css" %}"/>
+  <!--script src="{% static "js/map_obj.js" %}"></script-->
+  <style>
+    body { width:100%; height:100%; position:absolute; }
+    #base-map { position:fixed; top:0; bottom:0; width:100%; height:100%; min-height:100%; }
+    /*.mapbox { position: relative;}
+    .mapbox .overlay {position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
+    .mapbox .overlay .btn .panel { pointer-events: initial;}*/
+  </style>
+</head>
+
+
+<body class="application">
+  <div class="container" id="base-map" style="z-index: 0; min-height:100%;" > 
+    
+    <!--add map to the "base-map" container-->
+    <script>
+      //adds map to the background
+      L.mapbox.accessToken = 'pk.eyJ1IjoiZW1pYW96YW5nIiwiYSI6ImY4MTA2MDZiMmE3NTAzNjk3MzQ0MmIwODkyMTFmNTFkIn0.Q2MMPNWOYiu65oopytCe-w';
+      var map = L.mapbox.map('base-map', 'emiaozang.mp3dig1h',{zoomControl:false})
+                .setView([40, -74.50],9);
+    </script>
+
+
+
+
+    <!--div class="row">
+      <div class="col-sm-6">
+      </div>
+
+      <div class="col-sm-4">
+      </div>
+
+      <div class="col-sm-2">
+        <img src="{% static "img/test_gravator.jpg" %}" class="img-thumbnail" alt="Cinque Terre" width="50px" height="50px" style="float:right; right:10px; position:fixed;"></img--> 
+      <!--/div--><!--end of the rightmost column: user gravator and options-->
+    <!--/div--><!--end of row-->
+      <div id="nav-panel" class="panel panel-default" style="z-index:999;" >
+      <div class="panel-heading">
+        <!--div class="navbar-header">
+          <a class="navbar-brand" style="z-index:999" href="./">Dashboard</a>
+        </div--><!--end of navbar-->  
+
+        <!--button data-toggle="collapse" data-target="#stat-collapse" href="#stat-collapse" class="btn btn-default" aria-label="right-align" style="float:right; top:5px;">
+          Show
+          </button-->
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#nav-panel" data-target="#collapseOne" href="#collapseOne" style="z-index:999;">
+          Touch me to get down below
+        </a>
+        </h4>
+      </div>
+
+
+      <div id="collapseOne" class="panel-collapse collapse in" style="z-index:999;">
+        <div class="panel-body" style="z-index:999;">
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+          This is the panel body. if you would like to see the collapse effect you have to add enough text here. 
+        </div>
+      </div>
+    </div><!--end of panel-->
+  </div><!--end of container-->  
+
+
+</body>
+
+
